@@ -7,6 +7,15 @@
 <div><span>id:</span>{{sellectedhero.id}}</div>
 <div><span>name:</span>{{selectedhero.name}}</div> -->
 
+<h2>My Heroes</h2>
+<ul class="Heroes">
+  <li *ngFor="let hero of heroes" 
+  [class.selected]="hero === selectedHero"
+  (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span>{{hero.name}}
+  </li>
+</ul>
+
 <div *ngIf="selectedHero">
 
   <h2>{{selectedHero.name | uppercase}} Details</h2>
@@ -19,9 +28,3 @@
 
 </div>
 
-<h2>My Heroes</h2>
-<ul class="Heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span>{{hero.name}}
-  </li>
-</ul>
